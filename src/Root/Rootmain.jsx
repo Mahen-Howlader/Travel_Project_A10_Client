@@ -4,7 +4,7 @@ import Footer from "../Components/Footer/Footer";
 
 function Rootmain() {
     return (
-        <div>
+        <div className="relative">
             <Nav></Nav>
             <Outlet></Outlet>
             <Footer></Footer>

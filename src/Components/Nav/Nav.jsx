@@ -26,7 +26,6 @@ function Nav() {
     }
   }, [location]);
 
-  console.log(location);
   return (
     <div className="">
       <div

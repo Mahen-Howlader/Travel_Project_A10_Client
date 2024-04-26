@@ -1,6 +1,7 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { IoAirplane } from "react-icons/io5";
 import "animate.css";
+import { useEffect, useRef } from "react";
 function Nav() {
   function handleLogin(e) {
     // console.log(e.target)
@@ -10,10 +11,29 @@ function Nav() {
       e.target.classList.remove("animate__heartBeat");
     }, 1000);
   }
+
+  const location = useLocation();
+  const handelNavbarBgColor = useRef();
+  const isPathNameRoot = location.pathname === "/";
+
+  useEffect(() => {
+    if (!isPathNameRoot) {
+        handelNavbarBgColor.current.classList.add("bg-[#3636c2b6]", "border" );
+      handelNavbarBgColor.current.classList.remove("absolute");
+    } else {
+      handelNavbarBgColor.current.classList.remove("bg-[#3636c2b6]", "border");
+      handelNavbarBgColor.current.classList.add("absolute");
+    }
+  }, [location]);
+
+  console.log(location);
   return (
     <div className="">
-      <div className="absolute w-full  top-0 left-0 z-50 ">
-        <header className="p-4 dark:bg-gray-100 dark:text-gray-800">
+      <div
+        ref={handelNavbarBgColor}
+        className="absolute w-full   top-0 left-0 z-50 "
+      >
+        <header className="py-2  dark:bg-gray-100 dark:text-gray-800">
           <div className="container flex justify-between items-center container mx-auto text-white h-16 mx-auto">
             <div className="flex items-center gap-2 md:gap-x-3">
               <IoAirplane className="text-[#07f9a2] text-2xl md:text-4xl" />
@@ -35,8 +55,7 @@ function Nav() {
                   className={({ isActive }) => {
                     return isActive ? "text-[#0091FF]" : "";
                   }}
-                  to = "/alltouristsspot"
-
+                  to="/alltouristsspot"
                 >
                   All Tourists Spot
                 </NavLink>
@@ -44,8 +63,7 @@ function Nav() {
                   className={({ isActive }) => {
                     return isActive ? "text-[#0091FF]" : "";
                   }}
-                  to = "/addtouristsspot"
-
+                  to="/addtouristsspot"
                 >
                   Add Tourists Spot
                 </NavLink>
@@ -53,19 +71,20 @@ function Nav() {
                   className={({ isActive }) => {
                     return isActive ? "text-[#0091FF]" : "";
                   }}
-                  to = "/mylist"
+                  to="/mylist"
                 >
                   My List
                 </NavLink>
               </ul>
             </div>
             <div className="items-center flex-shrink-0 hidden lg:flex">
-              <button
+              <Link
+                to="/login"
                 onClick={handleLogin}
                 className="px-8 py-3 roboto-regular prompt-regular rounded dark:bg-violet-600 dark:text-gray-50 animate__animated"
               >
                 Log in
-              </button>
+              </Link>
             </div>
             <button className="p-4 lg:hidden ">
               <label className="   swap swap-rotate">

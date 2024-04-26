@@ -19,7 +19,9 @@ function Banner() {
       >
         <SwiperSlide>
           <div className="bg-[url('https://i.ibb.co/BGHKHM5/banner-Image4.jpg')]  bg-cover w-full h-full">
-            <div className="bg-[rgba(0,0,0,0.63)] w-full h-full"></div>
+            <div className="bg-[rgba(0,0,0,0.63)] w-full h-full text-white flex items-center px-40">
+              cox bazar
+            </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>

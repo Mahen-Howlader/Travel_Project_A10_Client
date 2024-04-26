@@ -4,7 +4,7 @@ import Footer from "../Components/Footer/Footer";
 
 function Rootmain() {
     return (
-        <div className="relative">
+        <div className="relative bg-[#F3F4F6]">
             <Nav></Nav>
             <Outlet></Outlet>
             <Footer></Footer>

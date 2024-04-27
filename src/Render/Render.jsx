@@ -3,6 +3,7 @@ import Rootmain from "../Root/Rootmain";
 import Home from "../Components/Home.jsx/Home";
 import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
+import Addtouristsspot from "../Components/AddtouristsSpot/Addtouristsspot";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/addtouristsspot",
-        element: <Register></Register>
+        element: <Addtouristsspot></Addtouristsspot>
       },
     ],
   },

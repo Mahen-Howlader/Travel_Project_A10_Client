@@ -15,7 +15,7 @@ function Banner() {
         loop={true}
         navigation={true}
         modules={[Navigation]}
-        className="mySwiper h-[60vh] md:h-[70vh] lg:h-[90vh]"
+        className="mySwiper h-[40vh] md:h-[70vh] lg:h-[90vh]"
       >
         <SwiperSlide>
           <div className="bg-[url('https://i.ibb.co/BGHKHM5/banner-Image4.jpg')]  bg-cover w-full h-full">

@@ -1,0 +1,101 @@
+// https://i.ibb.co/cXjQQP5/Malaysia1.jpg
+// https://i.ibb.co/0CMPXQr/Malaysia2.jpg
+// https://i.ibb.co/0JxRVpP/Malaysia3.jpg
+// https://i.ibb.co/rp0R6Z1/Thailand2.jpg
+// https://i.ibb.co/4fp0Xyy/Thailand3.jpg
+// https://i.ibb.co/pdsDzhS/Thailand4.jpg
+
+
+
+
+
+
+
+
+
+
+
+
+
+// [
+//     {
+//       "image": "https://i.ibb.co/mHswTNR/Cambodia1.jpg",
+//       "tourists_spot_name": "Angkor Wat",
+//       "country_Name": "Cambodia",
+//       "location": "Siem Reap",
+//       "short_description": "Angkor Wat is a UNESCO World Heritage site and the largest religious monument in the world. It was originally constructed as a Hindu temple for the Khmer Empire but gradually transformed into a Buddhist temple.",
+//       "average_cost": "$30-$37 for a one-day pass",
+//       "seasonality": "Best time to visit is during the dry season from November to March.",
+//       "travel_time": "Typically 2-3 days to explore the complex.",
+//       "total_visitors_per_year": "Around 2.6 million",
+//       "user_email": "[Your Email]",
+//       "user_name": "[Your Name]"
+//     },
+//     {
+//       "image": "https://i.ibb.co/fvPswS1/Vietnam1.jpg",
+//       "tourists_spot_name": "Halong Bay",
+//       "country_Name": "Vietnam",
+//       "location": "Quang Ninh Province",
+//       "short_description": "Halong Bay is known for its emerald waters and thousands of towering limestone islands topped with rainforests. It's a UNESCO World Heritage site and a popular destination for cruising, kayaking, and cave exploring.",
+//       "average_cost": "$100-$200 for a one to two-night cruise",
+//       "seasonality": "Best time to visit is from October to April.",
+//       "travel_time": "1-2 days for a cruise tour",
+//       "total_visitors_per_year": "Around 6 million",
+//       "user_email": "[Your Email]",
+//       "user_name": "[Your Name]"
+//     },
+//     {
+//       "image": "https://i.ibb.co/0CMPXQr/Malaysia2.jpg",
+//       "tourists_spot_name": "Petronas Twin Towers",
+//       "country_Name": "Malaysia",
+//       "location": "Kuala Lumpur",
+//       "short_description": "The Petronas Twin Towers are an iconic symbol of Malaysia's modernity and economic growth. Standing at 451.9 meters, they were the tallest buildings in the world until 2004 and offer breathtaking views from the observation deck.",
+//       "average_cost": "$20 for the observation deck",
+//       "seasonality": "Open year-round, but best to visit during weekdays to avoid crowds.",
+//       "travel_time": "1 day for exploring the towers and surrounding area",
+//       "total_visitors_per_year": "Around 3.5 million",
+//       "user_email": "[Your Email]",
+//       "user_name": "[Your Name]"
+//     },
+//     {
+//       "image": "https://i.ibb.co/9T70sDG/Indonesia4.jpg",
+//       "tourists_spot_name": "Borobudur Temple",
+//       "country_Name": "Indonesia",
+//       "location": "Magelang, Central Java",
+//       "short_description": "Borobudur is the world's largest Buddhist temple and a UNESCO World Heritage site. It dates back to the 9th century and consists of nine stacked platforms, topped by a central dome. The temple is adorned with intricate carvings and offers stunning sunrise views.",
+//       "average_cost": "$25 for entry",
+//       "seasonality": "Best time to visit is during the dry season from April to October.",
+//       "travel_time": "1 day for exploring the temple complex",
+//       "total_visitors_per_year": "Around 3.5 million",
+//       "user_email": "[Your Email]",
+//       "user_name": "[Your Name]"
+//     },
+//     {
+//       "image": "https://i.ibb.co/gg4TVX6/Thiland1.jpg",
+//       "tourists_spot_name": "Phi Phi Islands",
+//       "country_Name": "Thailand",
+//       "location": "Krabi Province",
+//       "short_description": "The Phi Phi Islands are famous for their stunning beaches, turquoise waters, and vibrant marine life. Activities include snorkeling, diving, and visiting Maya Bay, featured in the movie 'The Beach.' Phi Phi Don and Phi Phi Leh are the main islands.",
+//       "average_cost": "$30-$60 for a day trip",
+//       "seasonality": "Best time to visit is from November to April.",
+//       "travel_time": "1 day for island hopping",
+//       "total_visitors_per_year": "Around 1.5 million",
+//       "user_email": "[Your Email]",
+//       "user_name": "[Your Name]"
+//     },
+//     {
+//       "image": "https://i.ibb.co/RDzbNX7/bangladesh1.jpg",
+//       "tourists_spot_name": "Sundarbans Mangrove Forest",
+//       "country_Name": "Bangladesh",
+//       "location": "Khulna Division",
+//       "short_description": "The Sundarbans is the largest mangrove forest in the world and a UNESCO World Heritage site. It's home to the Bengal tiger, as well as diverse flora and fauna. Visitors can explore the forest through boat tours, spotting wildlife and enjoying the serene environment.",
+//       "average_cost": "$50-$100 for a boat tour",
+//       "seasonality": "Best time to visit is from November to February.",
+//       "travel_time": "2-3 days for a comprehensive tour",
+//       "total_visitors_per_year": "Around 0.5 million",
+//       "user_email": "[Your Email]",
+//       "user_name": "[Your Name]"
+//     }
+//   ]
+  
+

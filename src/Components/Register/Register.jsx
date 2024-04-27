@@ -21,7 +21,7 @@ function Register() {
 
   const onSubmit = (data) => {
     console.log(data)
-    const { password, name, email, photoURL } = data;
+    const { password, name, email, photoURL,password2 } = data;
 
     if (password.length < 6) {
         alert("Password must be at least 6 character");
@@ -32,6 +32,9 @@ function Register() {
       } else if (!/[A-Z]/.test(password)) {
         alert("Must have a Uppercase letter in the password");
         return;
+      }else if(password !== password2){
+        alert("Password and confrim password not match")
+        return
       }
 
     createEmailAndPassword(email, password)
@@ -149,6 +152,27 @@ function Register() {
                           className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
                         >
                           Password
+                        </label>
+                        {errors.password && (
+                          <span className="text-sm text-red-600">
+                            This field is required
+                          </span>
+                        )}
+                      </div>
+                      <div className="relative">
+                        <input
+                          id="password2"
+                          {...register("password2", { required: true })}
+                          name="password2"
+                          type="password"
+                          className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-rose-600"
+                          placeholder="Password2"
+                        />
+                        <label
+                          htmlFor="password2"
+                          className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
+                        >
+                          Confrim Password
                         </label>
                         {errors.password && (
                           <span className="text-sm text-red-600">

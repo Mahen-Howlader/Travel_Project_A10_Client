@@ -1,13 +1,11 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { IoAirplane } from "react-icons/io5";
 import "animate.css";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import UseAuthHook from "../../ContexApi/UseAuthHook";
 
-
 function Nav() {
-  const { user,logOutFun,setUser } = UseAuthHook();
-
+  const { user, logOutFun, setUser } = UseAuthHook();
   function handleLogin(e) {
     // console.log(e.target)
     e.target.classList.add("animate__heartBeat");
@@ -15,7 +13,6 @@ function Nav() {
       e.target.classList.remove("animate__heartBeat");
     }, 1000);
   }
-
 
   const location = useLocation();
   const handelNavbarBgColor = useRef();
@@ -30,36 +27,25 @@ function Nav() {
       handelNavbarBgColor.current.classList.add("absolute");
     }
   }, [location]);
-// handelLogout
-function handelLogout(){
-  setUser(null)
-  logOutFun()
-  .then(() => {
-    // Sign-out successful.
-    alert("Logout successful")
-  }).catch((error) => {
-    // An error happened.
-    console.log(error.message)
-  });
-}
+  // handelLogout
+  function handelLogout() {
+    setUser(null);
+    logOutFun()
+      .then(() => {
+        // Sign-out successful.
+        alert("Logout successful");
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error.message);
+      });
+  }
+  const [isListOpen, setIsListOpen] = useState(false);
 
-
-
-
-
-// // Example usage
-// const imagePath = 'example.jpg';
-// if (validateImage(imagePath)) {
-//     console.log("Image validation passed");
-// } else {
-//     console.log("Image validation failed");
-// }
-
-
-
-
-
-return (
+  const toggleList = () => {
+    setIsListOpen((prevState) => !prevState);
+  };
+  return (
     <div className="">
       <div
         ref={handelNavbarBgColor}
@@ -158,41 +144,88 @@ return (
                 </Link>
               )}
             </div>
-            <button className="p-4 lg:hidden ">
-              <label className="   swap swap-rotate">
-                {/* this hidden checkbox controls the state */}
-                <input type="checkbox" />
+            <div className="lg:hidden">
+              <button className="p-4 " onClick={toggleList}>
+                <label className="swap swap-rotate">
+                  <input
+                    type="checkbox"
+                    checked={isListOpen}
+                    onChange={toggleList}
+                  />
+                  {/* hamburger icon */}
+                  <svg
+                    className={`swap-off ${
+                      isListOpen ? "hidden" : "block"
+                    } fill-current`}
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 512 512"
+                  >
+                    <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
+                  </svg>
 
-                {/* hamburger icon */}
-                <svg
-                  className="swap-off fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 512 512"
-                >
-                  <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
-                </svg>
-
-                {/* close icon */}
-                <svg
-                  className="swap-on fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 512 512"
-                >
-                  <polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
-                </svg>
-              </label>
-            </button>
+                  {/* close icon */}
+                  <svg
+                    className={`swap-on ${
+                      isListOpen ? "block" : "hidden"
+                    } fill-current`}
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 512 512"
+                  >
+                    <polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
+                  </svg>
+                </label>
+              </button>
+            </div>
           </div>
-          <div className="relative hidden">
-            <ul className="prompt-regular text-black p-3 rounded-lg w-8/12 md:w-5/12 min-h-52 gap-y-3 flex flex-col absolute bg-white">
-              <NavLink>Home</NavLink>
-              <NavLink>All Tourists Spot</NavLink>
-              <NavLink>Add Tourists Spot</NavLink>
-              <NavLink>My List</NavLink>
+          <div className="relative">
+            <ul
+              className={`prompt-regular z-50 border-2 text-black p-3 rounded-lg w-8/12 md:w-5/12 min-h-52 gap-y-3 flex flex-col absolute bg-white ${
+                isListOpen ? "block" : "hidden"
+              }`}
+            >
+              <NavLink
+                to="/"
+                className={({ isActive }) => {
+                  return isActive ? "text-[#0091FF]" : "";
+                }}
+              >
+                Home
+              </NavLink>
+              <NavLink
+                className={({ isActive }) => {
+                  return isActive ? "text-[#0091FF]" : "";
+                }}
+                to="/alltouristsspot"
+              >
+                All Tourists Spot
+              </NavLink>
+              <NavLink
+                className={({ isActive }) => {
+                  return isActive ? "text-[#0091FF]" : "";
+                }}
+                to="/addtouristsspot"
+              >
+                Add Tourists Spot
+              </NavLink>
+              <NavLink
+                className={({ isActive }) => {
+                  return isActive ? "text-[#0091FF]" : "";
+                }}
+                to="/mylist"
+              >
+                My List
+              </NavLink>
+              <Link
+                  to="/login"
+                  onClick={handleLogin}
+                  className="px-8 py-3 roboto-regular bg-violet-600 hover:bg-violet-700 text-white prompt-regular btn rounded dark:bg-violet-600  animate__animated"
+                >
+                  Log in
+                </Link>
             </ul>
           </div>
         </header>

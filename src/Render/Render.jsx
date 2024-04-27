@@ -12,6 +12,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: async () => {
+          const response1 = await fetch("http://localhost:5000/touristsspots");
+          // const response2 = await fetch("http://localhost:5000/anotherendpoint");
+          // You can handle the responses here as needed
+          const data1 = await response1.json();
+          // const data2 = await response2.json();
+          return [data1];
+        }
       },
       {
         path: "/login",
@@ -19,6 +27,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/register",
+        element: <Register></Register>
+      },
+      {
+        path: "/addtouristsspot",
         element: <Register></Register>
       },
     ],

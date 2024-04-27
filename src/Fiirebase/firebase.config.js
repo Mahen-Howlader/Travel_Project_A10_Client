@@ -6,15 +6,15 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.FIREBASE_APIKEY,
-  authDomain: import.meta.env.FIREBASE_AUTHDOMAIN,
-  projectId: import.meta.env.FIREBASE_PROJECTID,
-  storageBucket: import.meta.env.FIREBASE_STORAGEBUCKET,
-  messagingSenderId: import.meta.env.FIREBASE_MESSAGINGSENDERID,
-  appId: import.meta.env.FIREBASE_APPID
+    apiKey: "AIzaSyBKIAcveseQdkzIp3gPyZarRGng9WfN9GQ",
+  authDomain: "travel-project-af997.firebaseapp.com",
+  projectId: "travel-project-af997",
+  storageBucket: "travel-project-af997.appspot.com",
+  messagingSenderId: "577564857880",
+  appId: "1:577564857880:web:e678297e693ff0e7ba156d"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-export default auth
+export default auth;

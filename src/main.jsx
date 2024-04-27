@@ -1,11 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import { RouterProvider } from 'react-router-dom'
-import router from './Render/Render'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { RouterProvider } from "react-router-dom";
+import router from "./Render/Render";
+import Contexapi from "./ContexApi/Contexapi";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-   <RouterProvider router={router} />
+    <Contexapi>
+      <RouterProvider router={router} />
+    </Contexapi>
   </React.StrictMode>
-)
+);

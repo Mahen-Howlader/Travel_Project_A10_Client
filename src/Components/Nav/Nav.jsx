@@ -2,15 +2,20 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { IoAirplane } from "react-icons/io5";
 import "animate.css";
 import { useEffect, useRef } from "react";
+import UseAuthHook from "../../ContexApi/UseAuthHook";
+
+
 function Nav() {
+  const { user,logOutFun,setUser } = UseAuthHook();
+
   function handleLogin(e) {
     // console.log(e.target)
     e.target.classList.add("animate__heartBeat");
-
     setTimeout(() => {
       e.target.classList.remove("animate__heartBeat");
     }, 1000);
   }
+
 
   const location = useLocation();
   const handelNavbarBgColor = useRef();
@@ -18,15 +23,43 @@ function Nav() {
 
   useEffect(() => {
     if (!isPathNameRoot) {
-        handelNavbarBgColor.current.classList.add("bg-[#3636c2b6]", "border" );
+      handelNavbarBgColor.current.classList.add("bg-[#3636c2b6]", "border");
       handelNavbarBgColor.current.classList.remove("absolute");
     } else {
       handelNavbarBgColor.current.classList.remove("bg-[#3636c2b6]", "border");
       handelNavbarBgColor.current.classList.add("absolute");
     }
   }, [location]);
+// handelLogout
+function handelLogout(){
+  setUser(null)
+  logOutFun()
+  .then(() => {
+    // Sign-out successful.
+    alert("Logout successful")
+  }).catch((error) => {
+    // An error happened.
+    console.log(error.message)
+  });
+}
 
-  return (
+
+
+
+
+// // Example usage
+// const imagePath = 'example.jpg';
+// if (validateImage(imagePath)) {
+//     console.log("Image validation passed");
+// } else {
+//     console.log("Image validation failed");
+// }
+
+
+
+
+
+return (
     <div className="">
       <div
         ref={handelNavbarBgColor}
@@ -76,14 +109,54 @@ function Nav() {
                 </NavLink>
               </ul>
             </div>
+
             <div className="items-center flex-shrink-0 hidden lg:flex">
-              <Link
-                to="/login"
-                onClick={handleLogin}
-                className="px-8 py-3 roboto-regular prompt-regular rounded dark:bg-violet-600 dark:text-gray-50 animate__animated"
-              >
-                Log in
-              </Link>
+              {user ? (
+                <div
+                  className="dropdown dropdown-end tooltip tooltip-left"
+                  data-tip={user?.email}
+                >
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-10 rounded-full">
+                      <img
+                        alt="Tailwind CSS Navbar component"
+                        src={user?.photoURL}
+                      />
+                    </div>
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="mt-3 z-[1] p-2 text-black shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <a className="">
+                        Name :{" "}
+                        <span className="font-bold texts">
+                          {user?.displayName}
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>Settings</a>
+                    </li>
+                    <li>
+                      <Link onClick={handelLogout}>Logout</Link>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <Link
+                  to="/login"
+                  onClick={handleLogin}
+                  className="px-8 py-3 roboto-regular prompt-regular rounded dark:bg-violet-600 dark:text-gray-50 animate__animated"
+                >
+                  Log in
+                </Link>
+              )}
             </div>
             <button className="p-4 lg:hidden ">
               <label className="   swap swap-rotate">

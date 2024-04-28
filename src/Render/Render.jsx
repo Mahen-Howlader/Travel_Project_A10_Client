@@ -11,12 +11,15 @@ import Touristsspots from "../Components/TouristsSpots/Touristsspots";
 import Alltouristsspots from "../Components/AllTouristsspots/Alltouristsspots";
 import AlltouristsspotsDetails from "../Components/AlltouristsspotsDetails/AlltouristsspotsDetails";
 import Mylist from "../Components/MyList/Mylist";
+import Updatemylist from "../Components/Updatemylist/Updatemylist";
+import Pagenotfound from "../Components/PageNotFound/Pagenotfound";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Rootmain></Rootmain>,
+    errorElement : <Pagenotfound></Pagenotfound>,
     children: [
       {
         path: "/",
@@ -41,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/alltouristsspot/:id",
         element: <AlltouristsspotsDetails></AlltouristsspotsDetails>,
+      },
+      {
+        path: "/update/:id",
+        element: <Updatemylist></Updatemylist>
       },
       {
         path: "/mylist",

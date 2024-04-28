@@ -1,6 +1,8 @@
 import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-function Mylisttabledetails({ indexNum, data }) {
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+function Mylisttabledetails({ indexNum, data,control,setControl }) {
   const {
     image,
     tourists_spot_name,
@@ -13,25 +15,51 @@ function Mylisttabledetails({ indexNum, data }) {
     user_name,
     short_description,
     country_Name,
-    _id
+    _id,
   } = data || {};
 
-
-  function handelDeleteTable(id){
-        fetch(`http://localhost:5000/mylist/${id}`,{
-            method : "DELETE",
-            headers : {
-                "content-type" : "application/json"
-            },
-            body : JSON.stringify(data)
+  function handelDeleteTable(id) {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/mylist/${id}`, {
+          method: "DELETE",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(data),
         })
-        .then(res => res.json())
-        .then(data => console.log(data))
+          .then((res) => res.json())
+          .then(dataval => {
+            if(dataval.deletedCount > 0){
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success",
+                  });
+                  setControl(!control)
+            }
+          });
+      }
+    });
   }
 
-  function handelEditTable(id){
-
-  }
+//   function handelEditTable(id) {
+//     fetch(`http://localhost:5000/mylist/${id}`, {
+//         method: "PUT",
+//         headers: {
+//           "content-type": "application/json",
+//         },
+//         body: JSON.stringify(data),
+//       })
+//   }
   return (
     <>
       <tr className="conatiner mx-auto text-lg">
@@ -41,11 +69,17 @@ function Mylisttabledetails({ indexNum, data }) {
         <td>{country_Name}</td>
         <td>
           <div className="flex  text-center justify-between">
-            <button onClick={() => handelEditTable(_id)} className="bg-green-600 text-white btn">
+            <Link
+              to={`/update/${_id}`}
+              className="bg-green-600 text-white btn"
+            >
               <FaRegEdit />
-            </button>
-            <button  onClick={() => handelDeleteTable(_id)} className="bg-red-600 text-2xl text-white btn">
-            <MdDelete />
+            </Link>
+            <button
+              onClick={() => handelDeleteTable(_id)}
+              className="bg-red-600 text-2xl text-white btn"
+            >
+              <MdDelete />
             </button>
           </div>
         </td>

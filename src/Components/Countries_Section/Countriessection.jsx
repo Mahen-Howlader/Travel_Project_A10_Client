@@ -1,4 +1,8 @@
+import Apihook from "../../CoustomHook/Apihook";
+import Country from "../Country/Country";
+
 function Countriessection() {
+  const {dataCountry} = Apihook()
     return (
         <div className="mt-14">
         {/* heading and title  */}
@@ -13,6 +17,9 @@ function Countriessection() {
               head to Saint Martin's Island, a paradise in the Bay of Bengal.
             </p>
           </div>
+        </div>
+        <div>
+          {dataCountry.map((cou,index) => <Country props={cou} key={index}></Country>)}
         </div>
       </div>
     );

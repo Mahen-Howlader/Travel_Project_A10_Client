@@ -5,6 +5,9 @@ function Mylist() {
   const [item, setItem] = useState([]);
   const { user } = UseAuthHook() || {};
   // console.log(user.email)
+
+
+
   useEffect(() => {
     fetch(`http://localhost:5000/mylist/${user?.email}`)
       .then((res) => res.json())
@@ -16,16 +19,16 @@ function Mylist() {
     <div className="overflow-x-auto">
   <table className="table table-zebra ">
     {/* head */}
-    <thead>
-      <tr>
+    <thead >
+      <tr className="font-bold text-lg">
         <th></th>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
+        <th>Location</th>
+        <th>Spot Name</th>
+        <th>Country</th>
         <th>
-            <div className="flex justify-between">
-                <button>Edit</button>
-                <button>Delete</button>
+            <div className="flex px-2 text-center justify-between">
+                <button >Edit</button>
+                <button >Delete</button>
             </div>
         </th>
       </tr>

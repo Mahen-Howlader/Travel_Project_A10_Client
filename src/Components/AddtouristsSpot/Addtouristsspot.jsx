@@ -1,7 +1,14 @@
+import { useState } from "react";
 import UseAuthHook from "../../ContexApi/UseAuthHook";
 
 function Addtouristsspot() {
   const { user } = UseAuthHook();
+const [country_Name, setcountry_Name] = useState("");
+    function handelCountryChange(e){
+        setcountry_Name(e.target.value)
+    }
+    // console.log(country_Name)
+
   function handelFormSubmit(e) {
     e.preventDefault();
     const image = e.target.image.value;
@@ -9,11 +16,22 @@ function Addtouristsspot() {
     const location = e.target.location.value;
     const travel_time = e.target.travel_time.value;
     const average_cost = e.target.average_cost.value;
+    const total_visitors_per_year = e.target.totalVisitorsPerYear.value;
     const seasonality = e.target.seasonality.value;
-    const totalVisitorsPerYear = e.target.totalVisitorsPerYear.value;
+    const short_description = e.target.short_description.value;
     const user_email = e.target.user_email.value;
     const user_name = e.target.user_name.value;
-
+    // image
+    // tourists_spot_name
+    // country_Name
+    // location
+    // short_description
+    // average_cost
+    // seasonality
+    // travel_time
+    // total_visitors_per_year
+    // user_email
+    // user_name
     const addDataTravel = {
       image,
       tourists_spot_name,
@@ -21,9 +39,11 @@ function Addtouristsspot() {
       travel_time,
       average_cost,
       seasonality,
-      totalVisitorsPerYear,
+      total_visitors_per_year,
       user_email,
       user_name,
+      short_description,
+      country_Name
     }
 
 
@@ -35,7 +55,11 @@ function Addtouristsspot() {
         body : JSON.stringify(addDataTravel)
     })
     .then(res=> res.json())
-    .then(data=> console.log(data))
+    .then(data=>{ console.log(data)
+        if(data.acknowledged){
+            alert("Success data add")
+        }
+    })
   }
   return (
     <div>
@@ -82,9 +106,11 @@ function Addtouristsspot() {
               </label>
               <div className=" flex items-center mt-1 relative">
                 <select
+                    onChange={handelCountryChange}
                   id="countrySelect"
                   className=" w-full appearance-none px-4 py-[10px]   pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
                 >
+                  <option value="">Select Country</option>
                   <option value="Cambodia">Cambodia</option>
                   <option value="Vietnam">Vietnam</option>
                   <option value="Malaysia">Malaysia</option>

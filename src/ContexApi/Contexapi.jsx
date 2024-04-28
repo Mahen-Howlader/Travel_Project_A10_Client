@@ -16,8 +16,20 @@ export const contextProvide = createContext(null);
 function Contexapi({ children }) {
   const [user, setUser] = useState("");
   const [loading, setLoading] = useState(false);
+  const [dataLoading, setDataLoading] = useState(false);
   const facebookProvider = new FacebookAuthProvider();
   const googleProvider = new GoogleAuthProvider();
+
+  // cutome hook data
+  async function AllTouriestHookApi() {
+  
+      setLoading(true);
+      const api = await fetch("http://localhost:5000/touristsspots");
+      const data = await api.json();
+      setLoading(false);
+      return [data];
+   
+  }
 
   function createEmailAndPassword(email, password) {
     setLoading(false);
@@ -72,6 +84,9 @@ function Contexapi({ children }) {
     logOutFun,
     googleLogin,
     facebookLogin,
+    dataLoading,
+    setDataLoading,
+    AllTouriestHookApi,
   };
   return (
     <contextProvide.Provider value={data}>{children}</contextProvide.Provider>

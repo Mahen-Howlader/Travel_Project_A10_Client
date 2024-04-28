@@ -18,7 +18,7 @@ function Touristsspots({data}) {
       </div>
       <div className="grid grid-cols-3 mt-10 gap-10">
         {
-          data.map((singleData,index) => <TouristSpotsCard cardData={singleData} key={index}></TouristSpotsCard>)
+         data && data.map((singleData,index) => <TouristSpotsCard cardData={singleData} key={index}></TouristSpotsCard>)
         }
       </div>
     </div>

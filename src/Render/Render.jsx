@@ -4,6 +4,14 @@ import Home from "../Components/Home.jsx/Home";
 import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
 import Addtouristsspot from "../Components/AddtouristsSpot/Addtouristsspot";
+import { useState } from "react";
+import UseAuthHook from "../ContexApi/UseAuthHook";
+import TouristSpotsCard from "../Components/TouristSpots.jsx/TouristSpotsCard";
+import Touristsspots from "../Components/TouristsSpots/Touristsspots";
+import Alltouristsspots from "../Components/AllTouristsspots/Alltouristsspots";
+import AlltouristsspotsDetails from "../Components/AlltouristsspotsDetails/AlltouristsspotsDetails";
+import Mylist from "../Components/MyList/Mylist";
+
 
 const router = createBrowserRouter([
   {
@@ -13,14 +21,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: async () => {
-          const response1 = await fetch("http://localhost:5000/touristsspots");
-          // const response2 = await fetch("http://localhost:5000/anotherendpoint");
-          // You can handle the responses here as needed
-          const data1 = await response1.json();
-          // const data2 = await response2.json();
-          return [data1];
-        }
       },
       {
         path: "/login",
@@ -33,6 +33,18 @@ const router = createBrowserRouter([
       {
         path: "/addtouristsspot",
         element: <Addtouristsspot></Addtouristsspot>
+      },
+      {
+        path: "/alltouristsspot",
+        element: <Alltouristsspots></Alltouristsspots>,
+      },
+      {
+        path: "/alltouristsspot/:id",
+        element: <AlltouristsspotsDetails></AlltouristsspotsDetails>,
+      },
+      {
+        path: "/mylist",
+        element: <Mylist></Mylist>
       },
     ],
   },

@@ -4,6 +4,7 @@ import Countriessection from "../Countries_Section/Countriessection";
 import Touristsspots from "../TouristsSpots/Touristsspots";
 import Apihook from "../../CoustomHook/Apihook";
 import Travelinformation from "../TravelInformation/Travelinformation";
+import Topteninfosection from "../ToptenSection/Topteninfosection";
 function Home() {
    const {data} = Apihook()
     return (
@@ -13,6 +14,7 @@ function Home() {
             <Touristsspots data={data}></Touristsspots>
             <Countriessection></Countriessection>
             <Travelinformation></Travelinformation>
+            <Topteninfosection></Topteninfosection>
             </div>
         </div>
     );

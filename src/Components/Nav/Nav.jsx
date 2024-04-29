@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import UseAuthHook from "../../ContexApi/UseAuthHook";
 
 function Nav() {
-  const { user, logOutFun, setUser } = UseAuthHook();
+  const { user, logOutFun, setUser, loading } = UseAuthHook();
   function handleLogin(e) {
     // console.log(e.target)
     e.target.classList.add("animate__heartBeat");
@@ -46,7 +46,7 @@ function Nav() {
     setIsListOpen((prevState) => !prevState);
   };
   return (
-    <div className="">
+    <>
       <div
         ref={handelNavbarBgColor}
         className="absolute w-full   top-0 left-0 z-50 "
@@ -220,17 +220,17 @@ function Nav() {
                 My List
               </NavLink>
               <Link
-                  to="/login"
-                  onClick={handleLogin}
-                  className="px-8 py-3 roboto-regular bg-violet-600 hover:bg-violet-700 text-white prompt-regular btn rounded dark:bg-violet-600  animate__animated"
-                >
-                  Log in
-                </Link>
+                to="/login"
+                onClick={handleLogin}
+                className="px-8 py-3 roboto-regular bg-violet-600 hover:bg-violet-700 text-white prompt-regular btn rounded dark:bg-violet-600  animate__animated"
+              >
+                Log in
+              </Link>
             </ul>
           </div>
         </header>
       </div>
-    </div>
+    </>
   );
 }
 

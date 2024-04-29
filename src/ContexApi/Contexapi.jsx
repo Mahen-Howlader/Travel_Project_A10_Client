@@ -20,23 +20,13 @@ function Contexapi({ children }) {
   const facebookProvider = new FacebookAuthProvider();
   const googleProvider = new GoogleAuthProvider();
 
-  // cutome hook data
-  async function AllTouriestHookApi() {
-  
-      setLoading(true);
-      const api = await fetch("http://localhost:5000/touristsspots");
-      const data = await api.json();
-      setLoading(false);
-      return [data];
-   
-  }
-
   function createEmailAndPassword(email, password) {
     setLoading(false);
     return createUserWithEmailAndPassword(auth, email, password);
   }
 
   function updateProfileFun(name, photoURL) {
+    setLoading(false);
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photoURL,
@@ -65,11 +55,8 @@ function Contexapi({ children }) {
   //   observerb
   useEffect(() => {
     const subcribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        console.log(user);
         setUser(user);
         setLoading(true);
-      }
     });
     return () => subcribe();
   }, []);
@@ -86,7 +73,6 @@ function Contexapi({ children }) {
     facebookLogin,
     dataLoading,
     setDataLoading,
-    AllTouriestHookApi,
   };
   return (
     <contextProvide.Provider value={data}>{children}</contextProvide.Provider>

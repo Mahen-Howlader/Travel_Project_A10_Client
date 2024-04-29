@@ -13,6 +13,7 @@ import AlltouristsspotsDetails from "../Components/AlltouristsspotsDetails/Allto
 import Mylist from "../Components/MyList/Mylist";
 import Updatemylist from "../Components/Updatemylist/Updatemylist";
 import Pagenotfound from "../Components/PageNotFound/Pagenotfound";
+import PrivateRouter from "../PrivateRouter/PrivateRouter";
 
 
 const router = createBrowserRouter([
@@ -35,23 +36,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/addtouristsspot",
-        element: <Addtouristsspot></Addtouristsspot>
+        element: <PrivateRouter><Addtouristsspot></Addtouristsspot></PrivateRouter>
       },
       {
         path: "/alltouristsspot",
-        element: <Alltouristsspots></Alltouristsspots>,
+        element: <Alltouristsspots></Alltouristsspots>
       },
       {
         path: "/alltouristsspot/:id",
-        element: <AlltouristsspotsDetails></AlltouristsspotsDetails>,
+        element: <PrivateRouter><AlltouristsspotsDetails></AlltouristsspotsDetails></PrivateRouter>,
       },
       {
         path: "/update/:id",
-        element: <Updatemylist></Updatemylist>
+        element: <PrivateRouter><Updatemylist></Updatemylist></PrivateRouter> 
       },
       {
         path: "/mylist",
-        element: <Mylist></Mylist>
+        element: <PrivateRouter><Mylist></Mylist></PrivateRouter>
       },
     ],
   },

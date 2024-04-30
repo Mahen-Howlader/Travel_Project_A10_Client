@@ -21,7 +21,7 @@ function Topteninfosection() {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-10 mt-10 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10 ">
         <div className="bg-white p-7 rounded-lg shadow-2xl space-y-2">
           <div className="flex items-center gap-x-4 text-xl font-semibold">
             <IoMdAirplane />

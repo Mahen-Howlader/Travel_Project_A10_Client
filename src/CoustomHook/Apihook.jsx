@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 function Apihook() {
     const [data, setData] = useState([]);
     const [dataCountry, setDataCountrys] = useState([]);
-    const [loadingData, setLodaingData] = useState(true);
+    const [loadingData, setLodaingData] = useState(false);
     useEffect(() => {
       const loadData = async () => {
         setLodaingData(true);
-        const API = await fetch("http://localhost:5000/touristsspots");
-        const APICountrys = await fetch("http://localhost:5000/countrys");
+        const API = await fetch("https://assignmentten-one.vercel.app/touristsspots");
+        const APICountrys = await fetch("https://assignmentten-one.vercel.app/countrys");
         const data = await API.json();
         const dataCountry = await APICountrys.json()
         setData(data);

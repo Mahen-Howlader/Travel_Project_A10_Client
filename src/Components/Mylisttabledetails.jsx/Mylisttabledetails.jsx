@@ -29,7 +29,7 @@ function Mylisttabledetails({ indexNum, data,control,setControl }) {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/mylist/${id}`, {
+        fetch(`https://assignmentten-one.vercel.app/mylist/${id}`, {
           method: "DELETE",
           headers: {
             "content-type": "application/json",
@@ -52,7 +52,7 @@ function Mylisttabledetails({ indexNum, data,control,setControl }) {
   }
 
 //   function handelEditTable(id) {
-//     fetch(`http://localhost:5000/mylist/${id}`, {
+//     fetch(`https://assignmentten-one.vercel.app/mylist/${id}`, {
 //         method: "PUT",
 //         headers: {
 //           "content-type": "application/json",

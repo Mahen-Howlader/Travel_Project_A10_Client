@@ -1,8 +1,12 @@
 import Apihook from "../../CoustomHook/Apihook";
 import Country from "../Country/Country";
+import Spinner from "../Spinner/Spinner";
 
 function Countriessection() {
-  const {dataCountry} = Apihook()
+  const {dataCountry,loadingData} = Apihook()
+  if(loadingData){
+    return  <Spinner></Spinner>
+  }
     return (
         <div className="mt-20">
         {/* heading and title  */}
@@ -17,7 +21,7 @@ function Countriessection() {
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-10 mt-10">
+        <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
           {dataCountry.map((cou,index) => <Country props={cou} key={index}></Country>)}
         </div>
       </div>

@@ -5,7 +5,7 @@ import { MdHealthAndSafety } from "react-icons/md";
 function Travelinformation() {
   return (
     <div className="mt-20">
-      <div className="flex w-10/12 mx-auto text-center">
+      <div className="flex md:w-10/12 mx-auto text-center">
         <div>
           <h1 className="text-4xl mb-3 font-semibold  mb-6">
             <span className="border-b-2 pb-1 border-blue-500">

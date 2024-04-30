@@ -1,9 +1,10 @@
 import AllTouristsSportCard from "../AllTouristsSportCard/AllTouristsSportCard";
 import Apihook from "../../CoustomHook/Apihook";
 import { useEffect, useState } from "react";
+import Spinner from "../Spinner/Spinner";
 
 function Alltouristsspots() {
-  const { data } = Apihook();
+  const { data ,loadingData} = Apihook();
   const [getRead, setgetRead] = useState(data);
   const [getReadFilters, setReaddatafilters] = useState([]);
   
@@ -38,11 +39,18 @@ function Alltouristsspots() {
       setReaddatafilters(getRead);
     }
   }
+
+
+if(loadingData){
+  return <Spinner></Spinner>
+}
+
+
   return (
-    <div className="container mx-auto px-10">
+    <div className="container mx-auto md:px-10">
     
-      <div className="w-8/12 mx-auto text-center space-y-4 my-10">
-        <h1 className="text-[#005B21] prompt-extrabold text-6xl">
+      <div className="md:w-8/12 mx-auto text-center space-y-4 my-10">
+        <h1 className="text-[#005B21] prompt-extrabold text-3xl md:text-4xl lg:text-6xl">
           Amazing places to visit
         </h1>
         <p className="prompt-regular">
@@ -79,7 +87,7 @@ function Alltouristsspots() {
       </div>
       </div>
       
-      <div className="grid grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {getReadFilters &&
           getReadFilters.map((singleData, index) => (
             <AllTouristsSportCard

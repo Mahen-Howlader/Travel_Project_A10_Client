@@ -1,18 +1,26 @@
 import { useEffect, useState } from "react";
 import UseAuthHook from "../../ContexApi/UseAuthHook";
 import Mylisttabledetails from "../Mylisttabledetails.jsx/Mylisttabledetails";
+import Spinner from "../Spinner/Spinner";
 function Mylist() {
   const [item, setItem] = useState([]);
   const [control, setControl] = useState(false);
   const { user } = UseAuthHook() || {};
   // console.log(user.email)
-
+  const [mylistLoading,setMylistLoading] =  useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/mylist/${user?.email}`)
+    setMylistLoading(true)
+    fetch(`https://assignmentten-one.vercel.app/mylist/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setItem(data));
+    setMylistLoading(false)
   }, [user,control]);
   // console.log(item)
+
+
+  if(mylistLoading){
+    return <Spinner></Spinner>
+  }
   return (
     <div className="mt-10 container mx-auto">
       <div className="overflow-x-auto">

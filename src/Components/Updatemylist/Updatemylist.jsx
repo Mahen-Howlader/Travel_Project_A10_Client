@@ -1,20 +1,26 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import UseAuthHook from "../../ContexApi/UseAuthHook";
+import Spinner from "../Spinner/Spinner";
+import { toast } from "react-toastify";
 
 function Updatemylist() {
   const { user } = UseAuthHook();
-
+  const [updateLoading, setUpdateloading] = useState(false);
   const { id } = useParams();
   const [singleData, setSingleData] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/update/${id}`)
+    setUpdateloading(true);
+    fetch(`https://assignmentten-one.vercel.app/update/${id}`)
       .then((res) => res.json())
       .then((data) => {
+        setUpdateloading(false);
         setSingleData(data);
       });
   }, [id]);
-
+  if(updateLoading){
+    return <Spinner></Spinner>
+  }
   const {
     image,
     tourists_spot_name,
@@ -23,11 +29,8 @@ function Updatemylist() {
     average_cost,
     seasonality,
     total_visitors_per_year,
-    user_email,
-    user_name,
     short_description,
-    _id,
-    country_Name
+    country_Name,
   } = singleData || {};
 
   // console.log(country_Name)
@@ -67,10 +70,10 @@ function Updatemylist() {
       user_email,
       user_name,
       short_description,
-      country_Name
+      country_Name,
     };
 
-    fetch(`http://localhost:5000/touristsspots/${id}`, {
+    fetch(`https://assignmentten-one.vercel.app/touristsspots/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -80,7 +83,7 @@ function Updatemylist() {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          alert("Success Update");
+          toast.success("Success add");
         }
       });
   }
@@ -88,18 +91,18 @@ function Updatemylist() {
   return (
     <div>
       <div>
-        <div className="w-[70%] mx-auto mt-10 bg-slate-300 p-10 rounded-lg">
-        <h1 className="text-center mb-10">
-        <span className="border-b-4 pb-2 border-green-500 text-3xl font-bold  ">
-            Update Tourist Spot
-          </span>
-        </h1>
+        <div className="md:w-[70%] mx-auto mt-10 bg-slate-300 p-10 rounded-lg">
+          <h1 className="text-center mb-10">
+            <span className="border-b-4 pb-2 border-green-500 text-2xl lg:text-3xl font-bold  ">
+              Update Tourist Spot
+            </span>
+          </h1>
           <form
             id="addTouristSpotForm"
             onSubmit={handelFormSubmit}
             className="space-y-4"
           >
-            <div className="grid grid-cols-2 gap-x-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-4">
               <div className="w-full">
                 <label htmlFor="image" className="block">
                   Image URL:
@@ -128,14 +131,14 @@ function Updatemylist() {
               </div>
             </div>
 
-            <div className="grid grid-cols-3 items-center gap-x-3">
+            <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-x-3">
               <div>
                 <label htmlFor="location" className="block">
                   Country Name:
                 </label>
                 <div className=" flex items-center mt-1 relative">
                   <select
-                    value={country_Name } // Set the value attribute to the selected country
+                    value={country_Name} // Set the value attribute to the selected country
                     id="countrySelect"
                     className="w-full appearance-none px-4 py-[10px] pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
                   >
@@ -201,7 +204,7 @@ function Updatemylist() {
               ></textarea>
             </div>
 
-            <div className="grid grid-cols-3 gap-x-3">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-3">
               <div className="w-full">
                 <label htmlFor="average_cost" className="block">
                   Average Cost:
@@ -242,7 +245,7 @@ function Updatemylist() {
                 />
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-x-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10">
               <div>
                 <label htmlFor="user_email" className="block">
                   User Email:
@@ -278,7 +281,7 @@ function Updatemylist() {
                 type="submit"
                 className=" w-full bg-indigo-500 text-white rounded px-4 py-2 hover:bg-indigo-600"
               >
-               Update Details
+                Update Details
               </button>
             </div>
           </form>

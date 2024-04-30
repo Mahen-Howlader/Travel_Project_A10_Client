@@ -27,7 +27,7 @@ function AlltouristsspotsDetails() {
   } = detailsData || {};
 
   return (
-    <div className="px-36 mt-10">
+    <div className="md:px-20 lg:px-36 mt-10">
       <div className="flex  flex-col w-full p-6 space-y-6 overflow-hidden rounded-lg shadow-2xl dark:bg-gray-50 dark:text-gray-800">
    
         <div>

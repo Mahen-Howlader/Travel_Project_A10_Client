@@ -5,6 +5,7 @@ import Touristsspots from "../TouristsSpots/Touristsspots";
 import Apihook from "../../CoustomHook/Apihook";
 import Travelinformation from "../TravelInformation/Travelinformation";
 import Topteninfosection from "../ToptenSection/Topteninfosection";
+import { ToastContainer } from "react-toastify";
 function Home() {
     return (
         <div>

@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/alltouristsspot",
-        element: <Alltouristsspots></Alltouristsspots>
+        element:  <Alltouristsspots></Alltouristsspots>
       },
       {
         path: "/alltouristsspot/:id",

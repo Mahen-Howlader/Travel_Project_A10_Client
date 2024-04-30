@@ -6,13 +6,13 @@ function ToptendataCard() {
   return (
     <div className="card-container mt-10">
       <div className="relative ">
-        <img src="/Animated_Shape.svg" alt="" />
+        <img className="h-[300px] md:h-[400px] lg:h-[500px] w-full object-cover" src="/Animated_Shape.svg" alt="" />
         <div className="card-content absolute w-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center">
-          <h1 className="text-4xl lg:text-6xl font-bold">
+          <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold">
             {" "}
             Let’s make the travel
           </h1>
-          <h1 className="text-4xl lg:text-6xl font-bold">
+          <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold">
             experience amazing together.
           </h1>
         <div className="mt-10">

@@ -1,14 +1,16 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaGoogle } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa6";
 import { useForm } from "react-hook-form";
 import UseAuthHook from "../../ContexApi/UseAuthHook";
-
+import { toast } from "react-toastify";
 function Register() {
   const { signInEmailPassword,googleLogin,facebookLogin } = UseAuthHook();
   const navigate = useNavigate()
-
+  const location = useLocation()
+  const form = location?.state || "/";
+  
   const {
     register,
     handleSubmit,
@@ -19,11 +21,11 @@ function Register() {
     const { email,password} = data;
     signInEmailPassword(email,password)
     .then((result) => {
-      alert("Success Login")
-      navigate("/")
+      toast.success("login succes")
+      navigate(form)
     })
     .catch((error) =>{
-      alert(error.message)
+      toast.error(error.message)
     })
   };
 
@@ -31,10 +33,11 @@ function Register() {
   function loginSocial (socialAccoutnLoginWithPopUP){
     socialAccoutnLoginWithPopUP()
     .then((result) => {
-      alert("login succes")
+      navigate(form)
+      toast.success("login succes")
     })
     .catch((error) => {
-      alert(error.message)
+      toast.error(error.message)
     })
   }
 

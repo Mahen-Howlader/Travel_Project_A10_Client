@@ -1,13 +1,17 @@
+import { ScaleLoader } from "react-spinners";
 import Apihook from "../../CoustomHook/Apihook";
 import TouristSpotsCard from "../TouristSpots.jsx/TouristSpotsCard";
+import Spinner from "../Spinner/Spinner";
 
 function Touristsspots() {
-  const {data} = Apihook()
-
+  const {data,loadingData} = Apihook()
+  if(loadingData){
+    return  <Spinner></Spinner>
+  }
   return (
     <div className="mt-14">
       {/* heading and title  */}
-      <div className="flex w-10/12 mx-auto text-center">
+      <div className="flex md:w-10/12 mx-auto text-center">
         <div>
           <h1 className="text-4xl mb-3 font-semibold  mb-6"><span className="border-b-2 pb-1 border-blue-500">Tourists Spots</span></h1>
           <p className="roboto-light">
@@ -19,7 +23,7 @@ function Touristsspots() {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-3 mt-10 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-10">
         {
          data && data.map((singleData,index) => <TouristSpotsCard cardData={singleData} key={index}></TouristSpotsCard>)
         }

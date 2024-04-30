@@ -1,16 +1,18 @@
 import { useState } from "react";
 import UseAuthHook from "../../ContexApi/UseAuthHook";
+import { toast } from "react-toastify";
 
 function Addtouristsspot() {
   const { user } = UseAuthHook();
-const [country_Name, setcountry_Name] = useState("");
-    function handelCountryChange(e){
-        setcountry_Name(e.target.value)
-    }
-    // console.log(country_Name)
+  const [country_Name, setcountry_Name] = useState("");
+  function handelCountryChange(e) {
+    setcountry_Name(e.target.value);
+  }
+  // console.log(country_Name)
 
   function handelFormSubmit(e) {
     e.preventDefault();
+    const dataform = e.target;
     const image = e.target.image.value;
     const tourists_spot_name = e.target.tourists_spot_name.value;
     const location = e.target.location.value;
@@ -43,27 +45,29 @@ const [country_Name, setcountry_Name] = useState("");
       user_email,
       user_name,
       short_description,
-      country_Name
-    }
+      country_Name,
+    };
 
-
-    fetch("http://localhost:5000/touristsspots", {
-        method : "POST",
-        headers : {
-            "content-type" : "application/json"
-        },
-        body : JSON.stringify(addDataTravel)
+    fetch("https://assignmentten-one.vercel.app/touristsspots", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(addDataTravel),
     })
-    .then(res=> res.json())
-    .then(data=>{ console.log(data)
-        if(data.acknowledged){
-            alert("Success data add")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          dataform.reset();
+          toast.success("Success add");
         }
-    })
+      });
   }
+
   return (
     <div>
-      <div className="w-[70%] mx-auto mt-10 bg-slate-300 p-10 rounded-lg">
+      <div className="md:w-[70%] mx-auto mt-10 bg-slate-300 p-10 rounded-lg">
         <h1 className="text-3xl font-bold mb-6 text-center">
           Add Tourist Spot
         </h1>
@@ -72,7 +76,7 @@ const [country_Name, setcountry_Name] = useState("");
           onSubmit={handelFormSubmit}
           className="space-y-4"
         >
-          <div className="grid grid-cols-2 gap-x-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-4">
             <div className="w-full">
               <label htmlFor="image" className="block">
                 Image URL:
@@ -99,14 +103,14 @@ const [country_Name, setcountry_Name] = useState("");
             </div>
           </div>
 
-          <div className="grid grid-cols-3 items-center gap-x-3">
+          <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-x-3">
             <div>
               <label htmlFor="location" className="block">
                 Country Name:
               </label>
               <div className=" flex items-center mt-1 relative">
                 <select
-                    onChange={handelCountryChange}
+                  onChange={handelCountryChange}
                   id="countrySelect"
                   className=" w-full appearance-none px-4 py-[10px]   pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
                 >
@@ -170,7 +174,7 @@ const [country_Name, setcountry_Name] = useState("");
             ></textarea>
           </div>
 
-          <div className="grid grid-cols-3 gap-x-3">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-3">
             <div className="w-full">
               <label htmlFor="average_cost" className="block">
                 Average Cost:
@@ -208,7 +212,7 @@ const [country_Name, setcountry_Name] = useState("");
               />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-x-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10">
             <div>
               <label htmlFor="user_email" className="block">
                 User Email:

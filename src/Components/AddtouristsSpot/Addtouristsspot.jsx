@@ -183,6 +183,7 @@ function Addtouristsspot() {
                 type="text"
                 id="average_cost"
                 name="average_cost"
+                defaultValue={"$"}
                 required
                 className="w-full rounded border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 focus:outline-indigo-600 py-2 px-4 mt-1"
               />

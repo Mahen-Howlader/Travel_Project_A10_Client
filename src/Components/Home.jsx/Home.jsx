@@ -10,7 +10,7 @@ function Home() {
     return (
         <div>
             <Banner ></Banner>
-            <div className="container mx-auto">
+            <div className="container mx-auto  px-5 md:px-0">
             <Touristsspots></Touristsspots>
             <Countriessection></Countriessection>
             <Travelinformation></Travelinformation>

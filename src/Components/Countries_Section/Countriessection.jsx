@@ -8,11 +8,11 @@ function Countriessection() {
     return  <Spinner></Spinner>
   }
     return (
-        <div className="mt-20">
+        <div className="mt-20 mx-auto">
         {/* heading and title  */}
-        <div className="flex md:w-9/12 mx-auto text-center">
+        <div className="flex  md:w-9/12 mx-auto text-center">
           <div>
-            <h1 className="text-4xl mb-3 font-semibold ">Countries Section</h1>
+            <h1 className="text-4xl mb-3 font-semibold  mb-6"><span className="border-b-2 pb-1 border-blue-500">Countries Section</span></h1>
             <p className="roboto-light">
               In Bangladesh, adventure awaits at Sundarbans, home to majestic
               Royal Bengal tigers. Cox's Bazar boasts the world's longest natural

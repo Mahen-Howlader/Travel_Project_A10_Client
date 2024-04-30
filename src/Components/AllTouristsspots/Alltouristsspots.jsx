@@ -70,6 +70,7 @@ if(loadingData){
             <option value={"maxcost"}>Max Cost</option>
             <option value={"mincost"}>Min Cost</option>
           </select>
+          
           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 font-bold text-white">
             <svg
               className="fill-current h-4 w-4"

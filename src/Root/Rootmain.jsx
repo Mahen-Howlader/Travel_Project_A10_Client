@@ -5,9 +5,9 @@ import { ToastContainer } from "react-toastify";
 
 function Rootmain() {
     return (
-        <div className="relative  ">
+        <div className="relative">
             <Nav></Nav>
-            <div className="min-h-[calc(100vh-300px)]">
+            <div className="min-h-[calc(100vh-300px)] ">
             <Outlet></Outlet>
             </div>
             <Footer></Footer>

@@ -29,6 +29,24 @@
   font-style: normal;
 }
 
+/* svg */
+.card-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.svg-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card-content {
+  /* Style your card content */
+}
 
 
 /* roboto */

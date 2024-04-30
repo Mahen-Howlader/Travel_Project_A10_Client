@@ -6,12 +6,11 @@ import Apihook from "../../CoustomHook/Apihook";
 import Travelinformation from "../TravelInformation/Travelinformation";
 import Topteninfosection from "../ToptenSection/Topteninfosection";
 function Home() {
-   const {data} = Apihook()
     return (
         <div>
             <Banner ></Banner>
             <div className="container mx-auto">
-            <Touristsspots data={data}></Touristsspots>
+            <Touristsspots></Touristsspots>
             <Countriessection></Countriessection>
             <Travelinformation></Travelinformation>
             <Topteninfosection></Topteninfosection>

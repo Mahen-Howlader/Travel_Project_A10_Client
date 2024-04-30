@@ -1,5 +1,6 @@
 import { IoMdAirplane } from "react-icons/io";
 import { SlArrowRight } from "react-icons/sl";
+import ToptendataCard from "./ToptendataCard";
 
 function Topteninfosection() {
   return (
@@ -39,7 +40,8 @@ function Topteninfosection() {
             <SlArrowRight />
           </div>
           <p className="text-gray-500">
-Travel Organizers can user our booking engine to start their Online Travel Agency business
+            Travel Organizers can user our booking engine to start their Online
+            Travel Agency business
           </p>
         </div>
         <div className="bg-white p-7 rounded-lg shadow-2xl space-y-2">
@@ -54,6 +56,7 @@ Travel Organizers can user our booking engine to start their Online Travel Agenc
           </p>
         </div>
       </div>
+      <ToptendataCard></ToptendataCard>
     </div>
   );
 }

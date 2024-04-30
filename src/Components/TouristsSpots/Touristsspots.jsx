@@ -1,6 +1,9 @@
+import Apihook from "../../CoustomHook/Apihook";
 import TouristSpotsCard from "../TouristSpots.jsx/TouristSpotsCard";
 
-function Touristsspots({data}) {
+function Touristsspots() {
+  const {data} = Apihook()
+
   return (
     <div className="mt-14">
       {/* heading and title  */}

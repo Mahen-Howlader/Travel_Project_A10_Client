@@ -36,14 +36,32 @@ function AlltouristsspotsDetails() {
             alt=""
             className="object-cover w-full mb-4 h-60 md:h-[500px] rounded-xl dark:bg-gray-500"
           />
+          <div className="space-y-3">
           <h2 className="mb-1 text-xl font-semibold">
-            Nam cu platonem posidonium sanctus debitis te
+           <span className="font-bold">Tourists spot name : </span> {tourists_spot_name}
           </h2>
-          <p className="text-sm dark:text-gray-600">
-            Eu qualisque aliquando mel, id lorem detraxit nec, ad elit minimum
-            pri. Illum ipsum detracto ne cum. Mundi nemore te ius, vim ad illud
-            atqui apeirian...
+          <h2 className="mb-1 text-xl font-semibold">
+           <span className="font-bold">Country : </span> {country_Name}
+          </h2>
+          <h2 className="mb-1 text-xl font-semibold">
+           <span className="font-bold">Seasonality : </span> {seasonality}
+          </h2>
+          <h2 className="mb-1 text-xl font-semibold">
+           <span className="font-bold">Total visitors per year : </span> {total_visitors_per_year}
+          </h2>
+          <h2 className="mb-1 text-xl font-semibold">
+           <span className="font-bold">Location : </span> {location}
+          </h2>
+          <h2 className="mb-1 text-xl font-semibold">
+           <span className="font-bold">Travel time : </span> {travel_time}
+          </h2>
+          <h2 className="mb-1 text-xl font-semibold">
+           <span className="font-bold">Average cost : </span> {average_cost}
+          </h2>
+          <p className="text-lg dark:text-gray-600">
+          <span className="font-bold">Details : </span>  {short_description}
           </p>
+          </div>
         </div>
         <div className="flex flex-wrap justify-between">
           <div className="space-x-2">

@@ -1,8 +1,27 @@
-# React + Vite
-#live_link = https://travel-project-af997.web.app
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## [Live link ](https://travel-project-af997.web.app)
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- **Authentication Features:** Email and password-based authentication for login and registration, with optional social media login. Password verification criteria and error messages are included.
+
+## Skills
+- HTML
+- CSS
+- Tailwind CSS
+- React JS
+- Firebase
+- node js
+- Express js
+- mongoDB
+
+## Running the Project
+
+```bash
+// Install dependencies
+npm install
+
+// Run the project
+npm run dev
+```
